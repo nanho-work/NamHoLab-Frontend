@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['ui-sans-serif', 'system-ui'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
         pretendard: ['"Pretendard"', 'sans-serif'],
         noto: ['"Noto Sans KR"', 'sans-serif'],
         nanum: ['"Nanum Gothic"', 'sans-serif'],

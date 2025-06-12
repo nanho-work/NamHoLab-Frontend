@@ -2,15 +2,12 @@
 import { projects } from '@/lib/projects';
 import ProjectCard from '@/components/ProjectCard';
 import Reveal from '@/components/Reveal';
-import SeoHead from '@/components/SeoHead';
 import FadeCarousel from '@/components/Carousel/CardStackSlider';
-import ProcessSection from '@/components/customizer/main/ProcessSection';
+import ProcessSection from '@/components/main/ProcessSection';
 
 export default function Home() {
   return (
     <main>
-      <SeoHead />
-
       <section className="px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
@@ -42,7 +39,7 @@ export default function Home() {
       <ProcessSection/>
 
       {/* Services Section */}
-      <section id="services" className="bg-white py-20 px-6">
+      <section id="services" className="bg-white px-6">
         <div className="max-w-5xl mx-auto text-center">
           <Reveal>
             <h2 className="text-2xl font-bold text-gray-800 mb-8">우리가 잘하는 일</h2>
@@ -79,45 +76,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Process Section */}
-      <section id="process" className="bg-white py-20 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <Reveal>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">NamHoLab의 개발 프로세스</h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="text-gray-500 mb-10">
-              명확한 커뮤니케이션과 책임 있는 개발로 함께 성장합니다.
-            </p>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            <div className="p-6 border rounded shadow-sm">
-              <div className="text-blue-900 font-bold text-xl mb-2">1. 기획</div>
-              <p className="text-sm text-gray-600">
-                고객의 니즈를 파악하고, 서비스 목적과 방향을 구체화합니다.
-                요구사항 정의서를 통해 범위와 우선순위를 도출합니다.
-              </p>
-            </div>
-
-            <div className="p-6 border rounded shadow-sm">
-              <div className="text-blue-900 font-bold text-xl mb-2">2. 설계</div>
-              <p className="text-sm text-gray-600">
-                UI/UX, DB, API 등 기술적 설계를 진행합니다.
-                실제 사용자 흐름을 기준으로 와이어프레임과 구조를 정의합니다.
-              </p>
-            </div>
-
-            <div className="p-6 border rounded shadow-sm">
-              <div className="text-blue-900 font-bold text-xl mb-2">3. 구현</div>
-              <p className="text-sm text-gray-600">
-                검증된 기술 스택을 바탕으로 프론트엔드부터 백엔드까지 개발합니다.
-                테스트 → 배포 → 운영까지 직접 관리합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       {/* About Section */}
       <section id="about" className="bg-gray-50 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">

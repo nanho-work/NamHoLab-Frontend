@@ -34,7 +34,7 @@ function LottiePlayer({ src, width = 128, height = 128, scale = 0.8 }: LottiePla
   return (
     <div
       style={{ width, height }}
-      className="mb-6 rounded-xl shadow-md bg-white flex items-center justify-center"
+      className="flex items-center justify-center"
     >
       <Lottie
         animationData={animationData}

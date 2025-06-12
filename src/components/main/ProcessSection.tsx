@@ -1,6 +1,7 @@
 // src/components/ProcessSection.tsx
 
 import LottiePlayer from "@/components/common/LottiePlayer";
+import Link from 'next/link';
 
 export default function ProcessSection() {
   const steps = [
@@ -9,12 +10,14 @@ export default function ProcessSection() {
       title: "회원가입",
       description: "간단한 회원가입 및 서비스 신청",
       lottiePath: "/animations/step1.json",
+      href: "/signup", // ✅ 링크 추가
     },
     {
       id: 2,
       title: "상담 및 견적",
       description: "전문 컨설턴트와 1:1 상담 및 맞춤 견적 제공",
       lottiePath: "/animations/step2.json",
+      href: "/production", // ✅ 링크 추가
     },
     {
       id: 3,
@@ -37,11 +40,15 @@ export default function ProcessSection() {
         <p className="text-center text-gray-500 mb-16">처음부터 끝까지 전문가가 함께합니다.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map(({ id, title, description, lottiePath }) => (
+          {steps.map(({ id, title, description, lottiePath, href }) => (
             <div
               key={id}
               className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition hover:-translate-y-2 hover:shadow-lg"
             >
+              {href ? (
+                <Link href={href} className="absolute inset-0 z-10" aria-label={title}></Link>
+              ) : null}
+
               <div className="w-32 h-32 mb-6 rounded-xl shadow-md bg-white p-2">
                 <LottiePlayer src={lottiePath} />
               </div>

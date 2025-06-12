@@ -15,7 +15,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.17.0",
     "gray-matter": "^4.0.3",
     "jotai": "^2.12.5",
     "lottie-react": "^2.4.1",
