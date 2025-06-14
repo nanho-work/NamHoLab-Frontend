@@ -1,5 +1,3 @@
-// /components/customizer/HeaderStyleOption.tsx
-
 import React from 'react';
 import { useCustomizerStore } from '@/components/store/useCustomizerStore';
 import type { HeaderStyle } from '@/components/store/useCustomizerStore';
@@ -9,6 +7,12 @@ const HeaderStyleOption = () => {
   const { headerStyle, setHeaderStyle } = useCustomizerStore();
 
   const styles: HeaderStyle[] = ['simple', 'centered', 'withLogo'];
+
+  const styleLabelMap: Record<HeaderStyle, string> = {
+    simple: '기본형',
+    centered: '가운데 정렬형',
+    withLogo: '로고 포함형',
+  };
 
   return (
     <div className="space-y-2">
@@ -24,7 +28,7 @@ const HeaderStyleOption = () => {
             }
           )}
         >
-          {style.toUpperCase()}
+          {styleLabelMap[style]}
         </button>
       ))}
     </div>

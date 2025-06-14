@@ -1,5 +1,3 @@
-// /components/customizer/FontFamilyOption.tsx
-
 import React from 'react';
 import { useCustomizerStore } from '@/components/store/useCustomizerStore';
 import type { FontFamily } from '@/components/store/useCustomizerStore';
@@ -8,6 +6,12 @@ import clsx from 'clsx';
 const FontFamilyOption = () => {
     const { fontFamily, setFontFamily } = useCustomizerStore();
     const fonts: FontFamily[] = ['pretendard', 'noto', 'nanum'];
+
+    const fontLabelMap: Record<FontFamily, string> = {
+        pretendard: '프리텐다드',
+        noto: '노토 산스',
+        nanum: '나눔 고딕',
+    };
 
     return (
         <div className="space-y-2">
@@ -26,7 +30,7 @@ const FontFamilyOption = () => {
                         }
                     )}
                 >
-                    {font.toUpperCase()}
+                    {fontLabelMap[font]}
                 </button>
             ))}
         </div>

@@ -1,17 +1,9 @@
-// /components/customizer/PreviewArea.tsx
-
 import React from 'react';
 import { useCustomizerStore } from '@/components/store/useCustomizerStore';
-import type { ButtonStyle, HeaderStyle } from '@/components/store/useCustomizerStore';
+import type { ButtonStyle } from '@/components/store/useCustomizerStore';
 
 const PreviewArea = () => {
-    const { buttonStyle, headerStyle, footerStyle, fontFamily } = useCustomizerStore();
-    const headerTextMap: Record<HeaderStyle, string> = {
-        simple: '간단한 헤더',
-        centered: '가운데 정렬된 헤더',
-        withLogo: '로고와 함께 있는 헤더',
-    };
-
+    const { buttonStyle, buttonColor, headerStyle, footerStyle, fontFamily } = useCustomizerStore();
 
     const fontClassMap: Record<string, string> = {
         pretendard: 'font-pretendard',
@@ -19,83 +11,80 @@ const PreviewArea = () => {
         nanum: 'font-nanum',
     };
 
-    // 버튼 스타일 미리보기 
     const styleMap: Record<ButtonStyle, string> = {
-        rounded: 'rounded-full bg-blue-600 text-white px-6 py-2',
-        flat: 'bg-blue-100 text-blue-800 px-6 py-2',
-        ghost: 'border border-blue-600 text-blue-600 px-6 py-2',
-        pill: 'rounded-full bg-green-500 text-white px-8 py-2 shadow-md',
-        outline: 'border-2 border-gray-700 text-gray-700 px-6 py-2 bg-transparent',
+        rounded: 'rounded-full px-6 py-2',
+        flat: 'px-6 py-2 shadow-sm',
+        ghost: 'border px-6 py-2',
+        pill: 'rounded-full px-8 py-2 shadow-md',
+        outline: 'border-2 px-6 py-2 bg-transparent',
     };
 
-    //헤더 스타일 미리보기
     const renderHeader = () => {
         switch (headerStyle) {
             case 'simple':
                 return (
-                    <div className="flex text-xl font-bold border-b py-2"> 회사소개 사업분야 제품안내 공지사항</div>
+                    <header className="flex justify-between items-center px-6 py-4 shadow bg-white">
+                        <div className="text-xl font-bold">로고</div>
+                        <nav className="flex gap-6 text-gray-700">
+                            <a href="#">회사소개</a>
+                            <a href="#">사업분야</a>
+                            <a href="#">제품안내</a>
+                            <a href="#">공지사항</a>
+                        </nav>
+                    </header>
                 );
             case 'centered':
                 return (
-                    <div className="text-xl font-bold text-center py-4 bg-gray-100">
-                        <span className="text-gray-800">회사소개 사업분야 제품안내 공지사항</span>
-                    </div>
+                    <header className="flex flex-col items-center justify-center px-6 py-8 bg-white shadow">
+                        <nav className="flex gap-6 text-gray-700">
+                            <a href="#">회사소개</a>
+                            <a href="#">사업분야</a>
+                            <a href="#">제품안내</a>
+                            <a href="#">공지사항</a>
+                        </nav>
+                    </header>
                 );
             case 'withLogo':
                 return (
-                    <div className="flex items-center gap-2 p-4 bg-white shadow">
-                        <img
-                            src="/logo_1.png"
-                            alt="로고"
-                            className="w-8 h-8 object-contain"
-                        />
-                        <span className="text-lg font-semibold text-blue-700">회사소개 사업분야 제품안내 공지사항</span>
-                    </div>
+                    <header className="flex items-center justify-between px-6 py-4 bg-white shadow">
+                        <div className="flex items-center gap-2">
+                            <img src="/logo.png" alt="로고" className="w-10 h-10 object-contain" />
+                            <span className="text-xl font-semibold text-blue-700">라온코드</span>
+                        </div>
+                        <nav className="flex gap-6 text-gray-700">
+                            <a href="#">회사소개</a>
+                            <a href="#">사업분야</a>
+                            <a href="#">제품안내</a>
+                            <a href="#">공지사항</a>
+                        </nav>
+                    </header>
                 );
             default:
                 return null;
         }
     };
-    //푸터 스타일 미리보기
+
     const renderFooter = () => {
         switch (footerStyle) {
             case 'simple':
                 return (
-                    <footer className="bg-gray-100 text-center text-sm py-4 text-gray-600">
+                    <footer className="bg-gray-100 text-center text-sm py-4 text-gray-600 mt-10">
                         © 2025 리온코드 | Web. API. Automation.
                     </footer>
                 );
             case 'dark':
                 return (
-                    <footer className="bg-gray-900 text-white px-6 py-8 text-sm">
-                        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <footer className="bg-gray-900 text-white text-sm py-6 mt-10">
+                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between px-4">
                             <div>
-                                <h4 className="font-semibold mb-2">콘텐츠</h4>
-                                <ul className="space-y-1 text-gray-300">
-                                    <li>아이콘</li>
-                                    <li>스티커</li>
-                                    <li>애니메이션</li>
-                                </ul>
+                                <p>상호 : (주)리온코드 | 대표 : 최남호</p>
+                                <p>사업자등록번호: 123-45-67890</p>
+                                <p>경기도 성남시 판교로 123</p>
                             </div>
-                            <div>
-                                <h4 className="font-semibold mb-2">도움</h4>
-                                <ul className="space-y-1 text-gray-300">
-                                    <li>FAQ</li>
-                                    <li>문의</li>
-                                    <li>이용 안내</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="font-semibold mb-2">회사</h4>
-                                <ul className="space-y-1 text-gray-300">
-                                    <li>소개</li>
-                                    <li>블로그</li>
-                                    <li>채용</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="font-semibold mb-2">소셜 미디어</h4>
-                                <div className="flex gap-2">
+                            <div className="mt-4 md:mt-0">
+                                <p>고객센터: 1588-0000</p>
+                                <p>이메일: hello@reoncode.com</p>
+                                <div className="flex gap-3 mt-2">
                                     <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
                                     <div className="w-6 h-6 bg-pink-500 rounded-full"></div>
                                     <div className="w-6 h-6 bg-red-600 rounded-full"></div>
@@ -106,17 +95,17 @@ const PreviewArea = () => {
                 );
             case 'corporate':
                 return (
-                    <footer className="bg-gray-50 text-gray-700 py-6 px-4 text-sm">
-                        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between">
+                    <footer className="bg-gray-50 text-gray-700 text-sm py-6 mt-10">
+                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between px-4">
                             <div>
-                                <p>상호 : (주)리온코드</p>
-                                <p>대표 : 최남호</p>
+                                <p>상호 : (주)리온코드 | 대표 : 최남호</p>
                                 <p>사업자등록번호: 123-45-67890</p>
+                                <p>경기도 성남시 판교로 123</p>
                             </div>
                             <div className="mt-4 md:mt-0">
-                                <p>경기도 성남시 판교로 123</p>
                                 <p>고객센터: 1588-0000</p>
                                 <p>이메일: hello@reoncode.com</p>
+                                <p>채용/제휴: recruit@reoncode.com</p>
                             </div>
                         </div>
                     </footer>
@@ -126,27 +115,21 @@ const PreviewArea = () => {
         }
     };
 
-
-
     return (
-        <div className={`bg-white p-6 h-full overflow-auto ${fontClassMap[fontFamily]}`}>
-            <h2 className="text-xl font-bold mb-4">미리보기</h2>
-            <div className="border border-dashed border-gray-300 p-6 rounded-md text-center text-gray-500">
-                이곳에 실시간 미리보기가 표시됩니다.
-
-                {/* ✅ 폰트 미리보기 텍스트 추가 */}
-                <p className="text-xl mt-4 mb-4">
-                    가나다라마바사 ABCDEFG abcdefg 1234567890
-                </p>
-
-                <div className="mb-6">{renderHeader()}</div>
-
-                <div className="flex justify-center">
-                    <button className={styleMap[buttonStyle]}>샘플 버튼</button>
+        <div className={`min-h-screen flex flex-col ${fontClassMap[fontFamily]}`}>
+            {renderHeader()}
+            <main className="flex-1 bg-gray-50 py-10">
+                <div className="max-w-5xl mx-auto text-center px-4">
+                    <h2 className="text-3xl font-bold mb-4">우리 제품의 특별한 가치를 경험하세요</h2>
+                    <p className="text-gray-600 mb-8">다양한 기능과 탁월한 품질을 통해 비즈니스를 성장시키세요.</p>
+                    <div className="flex justify-center mb-10">
+                        <button className={`${styleMap[buttonStyle]}`} style={{ backgroundColor: buttonColor, color: 'white' }}>
+                            지금 시작하기
+                        </button>
+                    </div>
                 </div>
-
-                <div className="mt-8">{renderFooter()}</div>
-            </div>
+            </main>
+            {renderFooter()}
         </div>
     );
 };

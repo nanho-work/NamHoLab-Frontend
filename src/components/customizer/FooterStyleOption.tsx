@@ -1,5 +1,3 @@
-// /components/customizer/FooterStyleOption.tsx
-
 import React from 'react';
 import { useCustomizerStore } from '@/components/store/useCustomizerStore';
 import type { FooterStyle } from '@/components/store/useCustomizerStore';
@@ -9,6 +7,12 @@ const FooterStyleOption = () => {
   const { footerStyle, setFooterStyle } = useCustomizerStore();
 
   const styles: FooterStyle[] = ['simple', 'dark', 'corporate'];
+
+  const styleLabelMap: Record<FooterStyle, string> = {
+    simple: '기본형',
+    dark: '어두운형',
+    corporate: '기업형',
+  };
 
   return (
     <div className="space-y-2">
@@ -24,7 +28,7 @@ const FooterStyleOption = () => {
             }
           )}
         >
-          {style.toUpperCase()}
+          {styleLabelMap[style]}
         </button>
       ))}
     </div>
