@@ -1,11 +1,12 @@
 // src/components/Footer.tsx
 
 export default function Footer() {
+  const prefix = process.env.NODE_ENV === "production" ? "/NamHoLab-Frontend" : "";
   return (
     <footer className="w-full bg-gray-50 border-t border-gray-200 mt-24">
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
         <div className="space-y-4">
-          <img src="/logo.png" alt="라운코드 로고" className="w-[150px] h-auto" />
+          <img src={`${prefix}/logo.png`} alt="라운코드 로고" className="w-[150px] h-auto" />
           <p className="text-sm text-gray-500">Web. API. Automation.</p>
         </div>
 

@@ -2,31 +2,33 @@
 
 import LottiePlayer from "@/components/common/LottiePlayer";
 
+const prefix = process.env.NODE_ENV === "production" ? "/NamHoLab-Frontend" : "";
+
 export default function ProcessSection() {
   const steps = [
     {
       id: 1,
       title: "빠른 요청 접수",
       description: "연락처와 요청사항만 간단히 입력하면 시작됩니다.",
-      lottiePath: "/animations/step1.json",
+      lottiePath: `${prefix}/animations/step1.json`,
     },
     {
       id: 2,
       title: "상담 및 견적",
       description: "전문 컨설턴트가 직접 상담하고 맞춤 견적을 제안합니다.",
-      lottiePath: "/animations/step2.json",
+      lottiePath: `${prefix}/animations/step2.json`,
     },
     {
       id: 3,
       title: "제작 진행",
       description: "디자인부터 개발, QA까지 모든 과정을 전담합니다.",
-      lottiePath: "/animations/step3.json",
+      lottiePath: `${prefix}/animations/step3.json`,
     },
     {
       id: 4,
       title: "검토 및 오픈",
       description: "검수 후 웹사이트를 안정적으로 오픈합니다.",
-      lottiePath: "/animations/step4.json",
+      lottiePath: `${prefix}/animations/step4.json`,
     },
   ];
 

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import LottiePlayer from "@/components/common/LottiePlayer";
 
+const prefix = process.env.NODE_ENV === "production" ? "/NamHoLab-Frontend" : "";
+
 const steps = [
     {
         title: "상담 및 견적",
@@ -134,7 +136,7 @@ function StepItem({ index, title, desc, detail, lottiePath }: {
 
             {/* 오른쪽: Lottie 애니메이션 */}
             <div className="w-[280px] h-[260px] rounded-2xl overflow-hidden shadow-lg bg-white">
-                <LottiePlayer src={lottiePath ?? ''} width={280} height={280} />
+                <LottiePlayer src={`${prefix}${lottiePath ?? ''}`} width={280} height={280} />
             </div>
         </div>
     );

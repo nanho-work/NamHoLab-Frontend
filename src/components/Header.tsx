@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const prefix = process.env.NODE_ENV === 'production' ? '/NamHoLab-Frontend' : '';
+
 /*
 // 기존 메뉴 전체 주석은 유지 (확장 대비 보관)
 const menu = [ ... ];
@@ -19,7 +21,7 @@ export default function Header() {
         <div className="flex items-center w-[200px] h-[50px]">
           <Link href="/" className="flex gap-2 shrink-0">
             <Image
-              src="/logo.png"
+              src={`${prefix}/logo.png`}
               alt="LaonCode Logo"
               width={90}
               height={40}
