@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/NamHoLab-Frontend",
+  assetPrefix: "/NamHoLab-Frontend",
 };
 
 export default nextConfig;
