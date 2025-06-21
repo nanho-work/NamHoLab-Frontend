@@ -1,4 +1,6 @@
 // src/app/page.tsx
+'use client';
+
 import Reveal from '@/components/Reveal';
 import FadeCarousel from '@/components/Carousel/CardStackSlider';
 import ProcessSection from '@/components/main/ProcessSection';
