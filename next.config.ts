@@ -1,9 +1,11 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: '',
-  trailingSlash: true,
+  output: "export",
+  trailingSlash: true, // ✅ GitHub Pages에서 safer routing
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
