@@ -7,28 +7,26 @@ export default function ProcessSection() {
   const steps = [
     {
       id: 1,
-      title: "회원가입",
-      description: "간단한 회원가입 및 서비스 신청",
+      title: "빠른 요청 접수",
+      description: "연락처와 요청사항만 간단히 입력하면 시작됩니다.",
       lottiePath: "/animations/step1.json",
-      href: "/signup", // ✅ 링크 추가
     },
     {
       id: 2,
       title: "상담 및 견적",
-      description: "전문 컨설턴트와 1:1 상담 및 맞춤 견적 제공",
+      description: "전문 컨설턴트가 직접 상담하고 맞춤 견적을 제안합니다.",
       lottiePath: "/animations/step2.json",
-      href: "/production", // ✅ 링크 추가
     },
     {
       id: 3,
       title: "제작 진행",
-      description: "디자인 · 개발 · QA까지 풀 프로세스 진행",
+      description: "디자인부터 개발, QA까지 모든 과정을 전담합니다.",
       lottiePath: "/animations/step3.json",
     },
     {
       id: 4,
       title: "검토 및 오픈",
-      description: "최종 검토 후 안정적으로 웹사이트 오픈",
+      description: "검수 후 웹사이트를 안정적으로 오픈합니다.",
       lottiePath: "/animations/step4.json",
     },
   ];
@@ -40,15 +38,11 @@ export default function ProcessSection() {
         <p className="text-center text-gray-500 mb-16">처음부터 끝까지 전문가가 함께합니다.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map(({ id, title, description, lottiePath, href }) => (
+          {steps.map(({ id, title, description, lottiePath }) => (
             <div
               key={id}
               className="flex flex-col items-center text-center p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition hover:-translate-y-2 hover:shadow-lg"
             >
-              {href ? (
-                <Link href={href} className="absolute inset-0 z-10" aria-label={title}></Link>
-              ) : null}
-
               <div className="w-32 h-32 mb-6 rounded-xl shadow-md bg-white p-2">
                 <LottiePlayer src={lottiePath} />
               </div>

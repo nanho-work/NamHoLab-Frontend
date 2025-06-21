@@ -30,8 +30,8 @@ export default function Header() {
 
         {/* Center: Simplified Nav */}
         <nav className="hidden md:flex items-center space-x-6 text-lg font-semibold text-gray-900">
-          <Link href="/pricing" className="hover:text-blue-600">가격안내</Link>
-          <Link href="/customize" className="hover:text-blue-600">제작과정</Link>
+          <Link href="/pricing" className="hover:text-blue-600">비용안내</Link>
+          <Link href="/production" className="hover:text-blue-600">제작과정</Link>
           <Link href="/contact" className="hover:text-blue-600">문의하기</Link>
         </nav>
 

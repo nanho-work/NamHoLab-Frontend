@@ -12,10 +12,9 @@ export default function Footer() {
         </div>
 
         <div className="space-y-1 text-sm text-gray-500">
-          <p><span className="font-semibold text-gray-700">라운코드</span></p>
+          <p><span className="font-semibold text-gray-700">라온코드</span></p>
           <p>대표: 최남호</p>
           <p>사업자등록번호: 399-67-00640</p>
-          <p>경기도 남양주시 별내중앙로 30, 2층 204-F125호</p>
           <p>이메일: contact@yourdomain.com</p>
         </div>
 
