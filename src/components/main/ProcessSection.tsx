@@ -1,7 +1,6 @@
 // src/components/ProcessSection.tsx
 
 import LottiePlayer from "@/components/common/LottiePlayer";
-import Link from 'next/link';
 
 export default function ProcessSection() {
   const steps = [

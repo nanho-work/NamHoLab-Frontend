@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
+import type { LottieOptions } from "lottie-react";
 
 interface LottiePlayerProps {
   src: string;
@@ -11,7 +12,7 @@ interface LottiePlayerProps {
 }
 
 function LottiePlayer({ src, width = 128, height = 128, scale = 0.8 }: LottiePlayerProps) {
-  const [animationData, setAnimationData] = useState<any>(null);
+  const [animationData, setAnimationData] = useState<LottieOptions["animationData"] | null>(null);
 
   useEffect(() => {
     fetch(src)
